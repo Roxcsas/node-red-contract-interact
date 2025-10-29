@@ -1,0 +1,69 @@
+<script type="text/javascript">
+    RED.nodes.registerType('contract-interact',{
+        category: 'function',
+        color: '#A6BBCF',
+        defaults: {
+            name: {value:""},
+            providerURL: { value: "", required: true },
+            privateKey: { value: "", required: true },
+            contractABI: { value: "", required: true },
+            contractAddress: { value: "", required: true },
+            scnNamefunction : { value: "", required: true }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "inject.svg",
+        align: 'left',
+        hasValue: true,
+        label: function() {
+            return this.name||"contract-interact";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="contract-interact">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+        <div class="form-row">
+        <label for="node-input-providerURL"><i class="fa fa-tag"></i> Provate URL</label>
+        <input type="text" id="node-input-providerURL" placeholder="providerURL">
+    </div>
+        <div class="form-row">
+        <label for="node-input-privateKey"><i class="fa fa-tag"></i> Private Key (0x)</label>
+        <input type="text" id="node-input-privateKey" placeholder="privateKey">
+    </div>
+        <div class="form-row">
+        <label for="node-input-contractABI"><i class="fa fa-tag"></i> ABI</label>
+        <input type="text" id="node-input-contractABI" placeholder="contractABI">
+    </div>
+        <div class="form-row">
+        <label for="node-input-contractAddress"><i class="fa fa-tag"></i> Contract Address</label>
+        <input type="text" id="node-input-contractAddress" placeholder="contractAddress">
+    </div>
+        <div class="form-row">
+        <label for="node-input-scnNamefunction"><i class="fa fa-tag"></i> SCN Name Function</label>
+        <input type="text" id="node-input-scnNamefunction" placeholder="scnNamefunction">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="contract-interact">
+    <p>A module to interact with deployed blockchain contracts</p>
+    <ul>
+      <li>
+        <b>Provider URL</b>: The URL of the blockchain provider (e.g., Infura, Alchemy).
+      </li>
+      <li>
+        <b>Private Key</b>: The private key of the wallet to sign transactions. Starts with 0x...
+    </ul>
+    <li>
+        <b>Contract ABI</b>: The ABI (Application Binary Interface) of the smart contract in JSON format.
+      </li>
+      <li>
+        <b>Contract Address</b>: The address of the deployed smart contract on the blockchain.
+      </li>
+      <li>
+        <b>SCN Name Function</b>: The name of the smart contract function to interact with.
+    </li>
+</script>
